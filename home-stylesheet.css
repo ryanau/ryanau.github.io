@@ -48,7 +48,7 @@ h3 {
 	text-align: center;
 }
 
-#blog-menu-top {
+#blog-menu:first-of-type {
 	text-decoration: none;
 	width: auto;
 	display: block;
@@ -60,7 +60,7 @@ h3 {
 	text-align: center;
 }
 
-#blog-menu-bottom {
+#blog-menu:last-of-type {
 	text-decoration: none;
 	width: auto;
 	display: block;

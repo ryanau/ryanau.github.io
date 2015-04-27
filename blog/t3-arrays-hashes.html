@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ryan Au's Blog</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./default-stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="./blog-stylesheet.css">
+</head>
+<body>
+  <div id="container">
+  <header>
+    <div id="title-box">
+    <a id="title" href="http://ryanau.github.io/index.html">Ryan Au's Website</a>
+    </div>
+    <nav>
+    <a class="menu-button" href="#">About Me</a>
+    <a class="menu-button" href="#">Blog</a>
+    <a class="menu-button" href="#">Culture</a>
+    <a class="menu-button" href="#">Photography</a>
+    <a class="menu-button" href="#">Contact Me</a>
+    </nav>
+  </header>
+
+  <div id="bodycontent">
+    <div id="blogbox">
+      <article>
+      <h3>Blog Post #3 4/26/2015</h3>
+      <h2>Soooo... what's the difference between hashes and arrays?</h2>
+      <p>In life, you will come across situations where you would want to store information that you want to access it later on. With a computer, you can store a massive amount information in place called "database" and access it with a "key". For the purpose of illustrating how storing and accessing information works in Ruby, let's assume we would want to store information about your (or my) favorite things!</P>
+      <p>In Ruby, there are two ways of storing information: array and hash. Think of array as an ordered list of the information you store, and hash as an unordered list. For array, you will access information by the order it is entered into the database (a number). As for hash, since it's an unordered list, you will access information with key.</p>
+      <h4>Array: The Ordered List</h4>
+      <p>
+      <xmp>favorite_food = ['sushi','pizza','cake']</xmp>
+      Above is an example code of how you would store information in the array. Since the data is stored in an ordered list, if you want to retrieve information of, let' say, sushi, you would type...
+      <xmp>favorite_food [0]</xmp>
+      Notice that for array, the indexing starts with "0", so the first piece of data in an array starts with the index of ZER0. And if you want to retrieve "cake", you'll type...
+      <xmp>favorite_food [2]</xmp>
+      Easy right?
+      </p>
+      <h4>Hash: The UNordered LIst</h4>
+      <p>Data stored using the hash method is not of any particular order. So to access the data, you need a specific key that points to the piece of information you want to retrieve. For example, to store information, you would do...
+      <xmp>favorite_stuff = {
+        "color" => "blue",
+        "food" => "sushi",
+        "number" => 0
+      }
+      </xmp>
+      Now the data of some of my favorite stuff is stored in the hashes. In this case, the "key" to the answer of "blue" is color. So if someone else wants to know what's my favorite color, he/she will just type...
+      <xmp>favorite_stuff["color"]</xmp>
+      Not too bad huh?
+      </p>
+
+      </article>
+
+    </div>
+  </div>
+
+  <footer>
+    <a class="footer-button" href="http://www.linkedin.com/in/ryanau852">LinkedIn</a>
+    <a class="footer-button" href="http://github.com/ryanau">GitHub</a>
+    <a class="footer-button" href="http://twitter.com/ryan_au">Twitter</a>
+  </footer>
+
+  </div>
+
+</body>
+</html>

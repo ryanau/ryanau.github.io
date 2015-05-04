@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ryan Au's Blog</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./default-stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="./blog-stylesheet.css">
+</head>
+<body>
+  <div id="container">
+  <header>
+    <div id="title-box">
+    <a id="title" href="http://ryanau.github.io/index.html">Ryan Au's Website</a>
+    </div>
+    <nav>
+    <a class="menu-button" href="#">About Me</a>
+    <a class="menu-button" href="#">Blog</a>
+    <a class="menu-button" href="#">Culture</a>
+    <a class="menu-button" href="#">Photography</a>
+    <a class="menu-button" href="#">Contact Me</a>
+    </nav>
+  </header>
+
+  <div id="bodycontent">
+    <div id="blogbox">
+      <article>
+      <h3>Technical | Enumerable Methods 5/3/2015</h3>
+      <h2>What to do when you want to group data in Ruby? Use .group_by method!</h2>
+      <p>In Ruby, when you're using loop in your code, use Enumerable module instead! Enumerable provides looping power with clarity in your code. It provides a set of methods to traverse, search, sort and manipulate collections of data.</P>
+      <p>Today I will introduce the Enumerable method of .group_by in Ruby. This method works just like it sounds like, it groups the data according to the block you input. The input for the code can be a range of numbers or an array of data. And the output you would get, after running through the block of argument, is a hash where the keys are the evaluated results from the block and the values are arrays of elements in the collection that correspond to the key. Sounds focusing? Let's take a look at an example.</p>
+      <p>Let's say you have an array of data, which is consisted of an array of different numbers:</p>
+      <xmp>data = [1,2,3,4,5,6,7,8,9]</xmp>
+      <p>Now you want to group the data according to the requirement of the modulus operator (%), which divides the left hand operand by right hand operand and returns the remainder. We'll put that into the block quote while iterating over "i" where "i" is just each element inside the array. In this case "i" is just the numbers. And to use the method of .group_by, you would write:
+      <xmp>data.group_by {|i| i%3}</xmp>
+      <p>After you run that code, it will return the output in the form of an hash:</P>
+      <xmp>{1=>[1, 4, 7], 2=>[2, 5, 8], 0=>[3, 6, 9]}</xmp>
+      <p>The output is grouped into an hash, where the keys are the evaluated results from the block of argument, and in this case, is the remainder after running through the % operator. The values are the output of the operation.</p>
+
+      </article>
+
+    </div>
+  </div>
+
+  <footer>
+    <a class="footer-button" href="http://www.linkedin.com/in/ryanau852">LinkedIn</a>
+    <a class="footer-button" href="http://github.com/ryanau">GitHub</a>
+    <a class="footer-button" href="http://twitter.com/ryan_au">Twitter</a>
+  </footer>
+
+  </div>
+
+</body>
+</html>

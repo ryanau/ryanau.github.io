@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ryan Au's Blog</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./default-stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="./blog-stylesheet.css">
+</head>
+<body>
+  <div id="container">
+  <header>
+    <div id="title-box">
+    <a id="title" href="http://ryanau.github.io/index.html">Ryan Au's Website</a>
+    </div>
+    <nav>
+    <a class="menu-button" href="#">About Me</a>
+    <a class="menu-button" href="#">Blog</a>
+    <a class="menu-button" href="#">Culture</a>
+    <a class="menu-button" href="#">Photography</a>
+    <a class="menu-button" href="#">Contact Me</a>
+    </nav>
+  </header>
+
+  <div id="bodycontent">
+    <div id="blogbox">
+      <article>
+      <h3>Technical | Ruby Class 5/10/2015</h3>
+      <h2>What's a Ruby Class?</h2>
+      <p>When you first come into contact with Ruby class, you might be confused by what a Ruby Class is and what it actually does. To illustrate what a Ruby Class is, let's go with an example!</P>
+      <h4>The Ticket Box Example</h4>
+      <p>Imagine you're the software engineer running a box office at the Berkeley football stadium, and your job is to process and manipulate the data you have in your database, like modifying the ticket information you have. Sure, you can write a method for each ticket you have, but there is a better way of doing this, especially if you're a software engineer!</p>
+      <p>What Ruby offers you, is you can create a ticket Class, so every ticket (think of it as an object the database creates in the thousands) will have certain behavior (or method) you have already predefined the moment it is created. This way, you don't have to write a specific method, e.g. checking the price, modifying the date etc. for each ticket. You only have to write it to the ticket Class. To create a Ticket Class and write a simple method within the ticket Class:</p>
+      <xmp>
+      class Ticket
+        def type 
+          puts "Student Ticket"
+        end
+      end
+
+      ticket = Ticket.new
+      ticket.type
+      </xmp>
+      <p>This will return</p>
+      <xmp>
+      Student Ticket
+      </xmp>
+      <p>You've just created a Ticket Class. Every time you create a new object using the .new method, you create a new object within the Ticket Class that has a certain behavior. The behvaior we've defined here is the .type method, so if we run the .type method, it will show us the type of the ticket: Student Ticket.</p>
+      <h4>Instance Variables</h4>
+      <p>Obviously, there's so much more you can do with Ruby Class. One common use is to store information when you create the object. In this case, when we create the ticket object, we would also want to store the price information, so we can access the price of the ticket later on.</p>
+      <xmp>
+      class Ticket
+        def initialize(input)
+          @price = input
+        end
+
+        def get_price
+          puts "Returning the price of the ticket:"
+          puts @price
+        end
+      end
+
+      ticket = Ticket.new(15)
+      ticket.get_price
+      </xmp>
+      <p>which will return</p>
+      <xmp>
+      Returning the price of the ticket:
+      15
+      </xmp>
+      <p>Now we've just created the Ticket class with 2 methods and 1 instance variable. The first method we created is the .initialize method with a specific argument of (15). When we do this, we established a specific "starting behavior" to the ticket object when we create it. In this case, 15 is the input (price) we give to every newly created Ticket object. So if we initialize (.new) on the ticket object with the argument of (15), we're basically saying that a new ticket has been issued with a price of $15. To store that information for later use, we stored it into a instance variable.</p>
+      <p>The instance variable is indicated with the @ sign, and we defined the instance variable to be @price with the input of (15) in this case. Later on, we defined another method called .get_price. Here, we're simply going to return a message and the instance variable of @price we established earlier. So in this case, the price of 15 has been returned becuase we've stored it earlier as an instance variable when we initialize the ticket object.</p>
+      </article>
+
+    </div>
+  </div>
+
+  <footer>
+    <a class="footer-button" href="http://www.linkedin.com/in/ryanau852">LinkedIn</a>
+    <a class="footer-button" href="http://github.com/ryanau">GitHub</a>
+    <a class="footer-button" href="http://twitter.com/ryan_au">Twitter</a>
+  </footer>
+
+  </div>
+
+</body>
+</html>

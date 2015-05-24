@@ -24,6 +24,8 @@
 
   <div id="bodycontent">
     <div id="blogbox">
+    <h4>Golfer's Pub Crawl @Berkeley</h4>
+    <p>There are 9 bars scattered around the city. Try to hit the lowest score in this Par 3 Executive Course! Just remember, the drunker you are, the longer it takes for you to travel!</p>
       <table>       
         <tr>
           <th id="1101"></th>
@@ -256,24 +258,34 @@
         </tr>                                 
       </table>
 
-<!--   <button id="button1" type="button" onclick="myFunction()">Try it</button> -->
-  <button id="north_button" type="button" onclick="north()">North</button>
-  <button id="east_button" type="button" onclick="east()">East</button>
-  <button id="south_button" type="button" onclick="south()">South</button>
-  <button id="west_button" type="button" onclick="west()">West</button>
+  <button id="start_button" type="button" onclick="start()">Start</button>
+  <button id="north_button" type="button" onclick="north()">&uarr;</button>
+  <button id="south_button" type="button" onclick="south()">&darr;</button>
+  <button id="west_button" type="button" onclick="west()">&larr;</button>
+  <button id="east_button" type="button" onclick="east()">&rarr;</button>
 
-  <p>Time left:</p><p id="time_display">100 mins left</p>
-  <P>Drunkiness:</p><p id="drunkiness_display">Sober</p>
-  <P>Score:</p><p id="score_display">0</p>
+
+  <p id="time_display">Time left: 100 mins left</p>
+  <P id="drunkiness_display">Drunkiness: Sober</p>
+  <P id="score_display">Score: 0</p>
+  <p id="completed_display">Completed holes: 0/9</p>
 
   <script>
-  function myFunction(){
-    for (i = 100; i < 111; i){
-      var temp_string = i += 1
+// to display the locations of bar for a split second
+  function start(){
+    setTimeout(function() {
+      for (i = 0; i < bar.length + 1; i++){
+        document.getElementById(bar[i]["pos"]).innerHTML = "B";
+      };
+    }, 10);
+    setTimeout(function() {
+      for (i = 0; i < bar.length + 1; i++){
+        document.getElementById(bar[i]["pos"]).innerHTML = " ";
+      };
+    }, 1000);
 
-      document.getElementById(temp_string).innerHTML = "Y";
   }
-  }
+
   // setting player initial condition
   var golfer = {
     pos: 1511,
@@ -284,6 +296,8 @@
     step: 1,
     completed: 0,
     drunkiness: 0,
+    status: true,
+    status_1: true,
   };
 
   // setting bar properties
@@ -335,7 +349,7 @@
     },
     {
         name: "GTH",
-        pos: 1003,
+        pos: 1403,
         birdie: "3 Shots of Wishkey",
         par: "Bottle of Stella",
         bogey: "You get kicked out by the bartender",
@@ -373,16 +387,25 @@
   ];
 
   // score display
-  document.getElementById("score_display").innerHTML = golfer.score;
+  document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
 
-  // move functions
+  // when user clicks the arrow
   function north(){
-    golfer.pos -= (100 * golfer.step);
-    golfer.time -= 1 * golfer.multiplier;
+    // move
+    if (golfer.status ==  true){
+      golfer.pos -= (100 * golfer.step);
+      golfer.time -= 1 * golfer.multiplier;
+    } else {
+    // to disable the button
+      return
+    }
 
+    // display information
     document.getElementById(golfer.pos).innerHTML = "A";
-    document.getElementById("time_display").innerHTML = golfer.time + " mins left";
+    document.getElementById("time_display").innerHTML = "Time left: " + golfer.time + " mins left";
+    document.getElementById("drunkiness_display").innerHTML = "Drunkiness: " + golfer.drunkiness_level
 
+    // when player has already been to the bar
     for (i = 0; i < bar.length; i++){
       if (bar[i]["pos"] == golfer.pos){ 
         if (bar[i]["status"] == false){
@@ -416,13 +439,23 @@
       golfer.drunkiness_level = "Blacked out"
       golfer.multiplier = 4
     }
-    document.getElementById("drunkiness_display").innerHTML = golfer.drunkiness_level
 
-    if (golfer.time == 0){
-      golfer.score = (golfer.score + (9 - golfer.completed)*4)
-      document.getElementById("time_display").innerHTML = "Oooops! You ran out of time!";
-      document.getElementById("score_display").innerHTML = golfer.score;      
+    // ends game and shows score if runs out of time
+    if (golfer.time <= 0){
+      if (golfer.status != false){
+      golfer.score = (golfer.score + (9 - golfer.completed)*3);
+
+      document.getElementById("time_display").innerHTML = "Time left: Oooops! You ran out of time!";
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
+      golfer.status = false
+      return;
+      }
+      else {
+        return
+      }
     }
+   
+    // when player hits a bar
     for (i = 0; i < bar.length; i++){    
       if (bar[i]["pos"] == golfer.pos){
         if (bar[i]["status"] == true){
@@ -431,33 +464,42 @@
           drink = prompt("What are you trying to score?" + " Please input: birdie, par or bogey.")
           document.getElementById(golfer.pos).innerHTML = "B";
         }
+
         if (drink === "birdie"){
           selection = bar[i]["birdie"];
           golfer.score += 2;
-          document.getElementById("score_display").innerHTML = golfer.score;
-          golfer.drunkiness += 10;
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
+          golfer.drunkiness += 4;
         }
         else if (drink === "par"){
           selection = bar[i]["par"];
           golfer.score += 3;
-          document.getElementById("score_display").innerHTML = golfer.score;
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
           golfer.drunkiness += 2
         }
         else if (drink === "bogey"){
           selection = bar[i]["bogey"];
           golfer.score += 4;
-          document.getElementById("score_display").innerHTML = golfer.score;
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
         }
+        golfer.completed += 1
+        document.getElementById("completed_display").innerHTML = "Completed holes: " + golfer.completed + "/9";
       }
     }
   }
   
+
+
   function east(){
-    golfer.pos += (1 * golfer.step);
-    golfer.time -= 1 * golfer.multiplier;
+    if (golfer.status ==  true){
+      golfer.pos += (1 * golfer.step);
+      golfer.time -= 1 * golfer.multiplier;
+    } else {
+      return
+    }
 
     document.getElementById(golfer.pos).innerHTML = "A";
-    document.getElementById("time_display").innerHTML = golfer.time + " mins left";
+    document.getElementById("time_display").innerHTML = "Time left: " + golfer.time + " mins left";
 
     for (i = 0; i < bar.length; i++){
       if (bar[i]["pos"] == golfer.pos){ 
@@ -492,13 +534,21 @@
       golfer.drunkiness_level = "Blacked out"
       golfer.multiplier = 4
     }
-    document.getElementById("drunkiness_display").innerHTML = golfer.drunkiness_level
+    document.getElementById("drunkiness_display").innerHTML = "Drunkiness: " + golfer.drunkiness_level
 
-    if (golfer.time == 0){
-      golfer.score = (golfer.score + (9 - golfer.completed)*4)
-      document.getElementById("time_display").innerHTML = "Oooops! You ran out of time!";
-      document.getElementById("score_display").innerHTML = golfer.score;      
+    if (golfer.time <= 0){
+      if (golfer.status != false){
+      golfer.score = (golfer.score + (9 - golfer.completed)*3)
+      document.getElementById("time_display").innerHTML = "Time left: Oooops! You ran out of time!";
+        document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
+      golfer.status = false
+      return;
+      }
+      else {
+        return
+      }
     }
+
     for (i = 0; i < bar.length; i++){    
       if (bar[i]["pos"] == golfer.pos){
         if (bar[i]["status"] == true){
@@ -510,30 +560,36 @@
         if (drink === "birdie"){
           selection = bar[i]["birdie"];
           golfer.score += 2;
-          document.getElementById("score_display").innerHTML = golfer.score;
-          golfer.drunkiness += 10;
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
+          golfer.drunkiness += 4;
         }
         else if (drink === "par"){
           selection = bar[i]["par"];
           golfer.score += 3;
-          document.getElementById("score_display").innerHTML = golfer.score;
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
           golfer.drunkiness += 2
         }
         else if (drink === "bogey"){
           selection = bar[i]["bogey"];
           golfer.score += 4;
-          document.getElementById("score_display").innerHTML = golfer.score;
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
         }
+        golfer.completed += 1
+        document.getElementById("completed_display").innerHTML = "Completed holes: " + golfer.completed + "/9";
       }
     }
   }
 
   function south(){
-    golfer.pos += (100 * golfer.step);
-    golfer.time -= 1 * golfer.multiplier;
+    if (golfer.status ==  true){
+      golfer.pos += (100 * golfer.step);
+      golfer.time -= 1 * golfer.multiplier;
+    } else {
+      return
+    }
 
     document.getElementById(golfer.pos).innerHTML = "A";
-    document.getElementById("time_display").innerHTML = golfer.time + " mins left";
+    document.getElementById("time_display").innerHTML = "Time left: " + golfer.time + " mins left";
 
     for (i = 0; i < bar.length; i++){
       if (bar[i]["pos"] == golfer.pos){ 
@@ -568,13 +624,21 @@
       golfer.drunkiness_level = "Blacked out"
       golfer.multiplier = 4
     }
-    document.getElementById("drunkiness_display").innerHTML = golfer.drunkiness_level
+    document.getElementById("drunkiness_display").innerHTML = "Drunkiness: " + golfer.drunkiness_level
 
-    if (golfer.time == 0){
-      golfer.score = (golfer.score + (9 - golfer.completed)*4)
-      document.getElementById("time_display").innerHTML = "Oooops! You ran out of time!";
-      document.getElementById("score_display").innerHTML = golfer.score;      
+    if (golfer.time <= 0){
+      if (golfer.status != false){
+      golfer.score = (golfer.score + (9 - golfer.completed)*3)
+      document.getElementById("time_display").innerHTML = "Time left: Oooops! You ran out of time!";
+        document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
+      golfer.status = false
+      return;
+      }
+      else {
+        return
+      }
     }
+
     for (i = 0; i < bar.length; i++){    
       if (bar[i]["pos"] == golfer.pos){
         if (bar[i]["status"] == true){
@@ -586,30 +650,36 @@
         if (drink === "birdie"){
           selection = bar[i]["birdie"];
           golfer.score += 2;
-          document.getElementById("score_display").innerHTML = golfer.score;
-          golfer.drunkiness += 10;
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
+          golfer.drunkiness += 4;
         }
         else if (drink === "par"){
           selection = bar[i]["par"];
           golfer.score += 3;
-          document.getElementById("score_display").innerHTML = golfer.score;
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
           golfer.drunkiness += 2
         }
         else if (drink === "bogey"){
           selection = bar[i]["bogey"];
           golfer.score += 4;
-          document.getElementById("score_display").innerHTML = golfer.score;
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
         }
+        golfer.completed += 1
+        document.getElementById("completed_display").innerHTML = "Completed holes: " + golfer.completed + "/9";
       }
     }
   }
 
   function west(){
-    golfer.pos -= (1 * golfer.step);
-    golfer.time -= 1 * golfer.multiplier;
+    if (golfer.status ==  true){
+      golfer.pos -= (1 * golfer.step);
+      golfer.time -= 1 * golfer.multiplier;
+    } else {
+      return
+    }
 
     document.getElementById(golfer.pos).innerHTML = "A";
-    document.getElementById("time_display").innerHTML = golfer.time + " mins left";
+    document.getElementById("time_display").innerHTML = "Time left: " + golfer.time + " mins left";
 
     for (i = 0; i < bar.length; i++){
       if (bar[i]["pos"] == golfer.pos){ 
@@ -644,13 +714,21 @@
       golfer.drunkiness_level = "Blacked out"
       golfer.multiplier = 4
     }
-    document.getElementById("drunkiness_display").innerHTML = golfer.drunkiness_level
+    document.getElementById("drunkiness_display").innerHTML = "Drunkiness: " + golfer.drunkiness_level
 
-    if (golfer.time == 0){
-      golfer.score = (golfer.score + (9 - golfer.completed)*4)
-      document.getElementById("time_display").innerHTML = "Oooops! You ran out of time!";
-      document.getElementById("score_display").innerHTML = golfer.score;      
+    if (golfer.time <= 0){
+      if (golfer.status != false){
+      golfer.score = (golfer.score + (9 - golfer.completed)*3)
+      document.getElementById("time_display").innerHTML = "Time left: Oooops! You ran out of time!";
+        document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
+      golfer.status = false
+      return;
+      }
+      else {
+        return
+      }
     }
+
     for (i = 0; i < bar.length; i++){    
       if (bar[i]["pos"] == golfer.pos){
         if (bar[i]["status"] == true){
@@ -662,20 +740,23 @@
         if (drink === "birdie"){
           selection = bar[i]["birdie"];
           golfer.score += 2;
-          document.getElementById("score_display").innerHTML = golfer.score;
-          golfer.drunkiness += 10;
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
+          golfer.drunkiness += 4;
         }
         else if (drink === "par"){
           selection = bar[i]["par"];
           golfer.score += 3;
-          document.getElementById("score_display").innerHTML = golfer.score;
-          golfer.drunkiness += 2
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
+          golfer.drunkiness += 2;
         }
         else if (drink === "bogey"){
           selection = bar[i]["bogey"];
           golfer.score += 4;
-          document.getElementById("score_display").innerHTML = golfer.score;
+          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
         }
+        golfer.completed += 1
+        document.getElementById("completed_display").innerHTML = "Completed holes: " + golfer.completed + "/9";
+
       }
     }
   }

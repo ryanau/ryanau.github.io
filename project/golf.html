@@ -396,16 +396,12 @@
       golfer.pos -= (100 * golfer.step);
       golfer.time -= 1 * golfer.multiplier;
     } else {
-    // to disable the button
       return
     }
 
-    // display information
     document.getElementById(golfer.pos).innerHTML = "A";
     document.getElementById("time_display").innerHTML = "Time left: " + golfer.time + " mins left";
-    document.getElementById("drunkiness_display").innerHTML = "Drunkiness: " + golfer.drunkiness_level
 
-    // when player has already been to the bar
     for (i = 0; i < bar.length; i++){
       if (bar[i]["pos"] == golfer.pos){ 
         if (bar[i]["status"] == false){
@@ -439,14 +435,13 @@
       golfer.drunkiness_level = "Blacked out"
       golfer.multiplier = 4
     }
+    document.getElementById("drunkiness_display").innerHTML = "Drunkiness: " + golfer.drunkiness_level
 
-    // ends game and shows score if runs out of time
     if (golfer.time <= 0){
       if (golfer.status != false){
-      golfer.score = (golfer.score + (9 - golfer.completed)*3);
-
+      golfer.score = (golfer.score + (9 - golfer.completed)*3)
       document.getElementById("time_display").innerHTML = "Time left: Oooops! You ran out of time!";
-          document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
+        document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
       golfer.status = false
       return;
       }
@@ -454,8 +449,7 @@
         return
       }
     }
-   
-    // when player hits a bar
+
     for (i = 0; i < bar.length; i++){    
       if (bar[i]["pos"] == golfer.pos){
         if (bar[i]["status"] == true){
@@ -464,7 +458,6 @@
           drink = prompt("What are you trying to score?" + " Please input: birdie, par or bogey.")
           document.getElementById(golfer.pos).innerHTML = "B";
         }
-
         if (drink === "birdie"){
           selection = bar[i]["birdie"];
           golfer.score += 2;
@@ -672,7 +665,7 @@
 
   function west(){
     if (golfer.status ==  true){
-      golfer.pos -= (1 * golfer.step);
+      golfer.pos -= 1 * golfer.step;
       golfer.time -= 1 * golfer.multiplier;
     } else {
       return
@@ -747,7 +740,7 @@
           selection = bar[i]["par"];
           golfer.score += 3;
           document.getElementById("score_display").innerHTML = "Score: " + golfer.score;
-          golfer.drunkiness += 2;
+          golfer.drunkiness += 2
         }
         else if (drink === "bogey"){
           selection = bar[i]["bogey"];
@@ -756,7 +749,6 @@
         }
         golfer.completed += 1
         document.getElementById("completed_display").innerHTML = "Completed holes: " + golfer.completed + "/9";
-
       }
     }
   }

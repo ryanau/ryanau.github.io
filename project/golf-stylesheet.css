@@ -7,9 +7,10 @@
 
 #bodycontent {
 	margin-top: 80px;
-	width: auto;
-	margin-left: 25%;
-	margin-right: 25%;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+
 }
 
 article {
@@ -33,13 +34,22 @@ xmp {
 
 /* table styling */
 
+
+
 td, th {
   width: 2rem;
   height: 2rem;
   border: 1px solid #ccc;
   text-align: center;
   font-weight: normal;
+  border-color: white;
+
 }
+
+.border{
+	background-color: grey;
+}
+
 th {
 
 }

@@ -183,6 +183,26 @@
         document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
       };
     };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos - 99){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos - 101){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos + 99){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos + 101){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
  
 
     // when moving
@@ -336,6 +356,26 @@
         document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
       };
     };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos - 99){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos - 101){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos + 99){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos + 101){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
     // when moving
     document.getElementById(golfer.pos).innerHTML = "A";
     document.getElementById(golfer.pos + 100).innerHTML = " ";
@@ -459,7 +499,7 @@
     } else {
       return
     }
-
+    
     // radar
     document.getElementById("radar_display").innerHTML = "How close are you to a bar: Nope"
     for (i = 0; i < bar.length; i++){
@@ -479,6 +519,26 @@
     };
     for (i = 0; i < bar.length; i++){
       if (bar[i]["pos"] == golfer.pos - 1){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos - 99){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos - 101){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos + 99){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos + 101){
         document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
       };
     };
@@ -629,6 +689,26 @@
     };
     for (i = 0; i < bar.length; i++){
       if (bar[i]["pos"] == golfer.pos - 1){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos - 99){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos - 101){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos + 99){
+        document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
+      };
+    };
+    for (i = 0; i < bar.length; i++){
+      if (bar[i]["pos"] == golfer.pos + 101){
         document.getElementById("radar_display").innerHTML = "How close are you to a bar: Close"
       };
     };

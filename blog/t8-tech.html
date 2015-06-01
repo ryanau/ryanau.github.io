@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ryan Au's Blog</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./default-stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="./blog-stylesheet.css">
+</head>
+<body>
+  <div id="container">
+  <header>
+    <div id="title-box">
+    <a id="title" href="http://ryanau.github.io/index.html">Ryan Au's Website</a>
+    </div>
+    <nav>
+    <a class="menu-button" href="#">About Me</a>
+    <a class="menu-button" href="#">Blog</a>
+    <a class="menu-button" href="#">Culture</a>
+    <a class="menu-button" href="#">Photography</a>
+    <a class="menu-button" href="#">Contact Me</a>
+    </nav>
+  </header>
+
+  <div id="bodycontent">
+    <div id="blogbox">
+      <article>
+      <h3>Technical | Sorting 5/31/2015 </h3>
+      <h2>A Brief Overview of 3 Main Sorting Methods: Bubble Sort, Quick Sort and Merge Sort</h2>
+      <p>Have you ever wondered how do some programming languages sort data, e.g. in an array? Today, we'll take a look at 3 different sorting methods, which are bubble sort, quick sort and merge sort.</p>
+      <h4>Bubble Sort</h4>
+      <p>Bubble sort is a simple sorting algorithm that repeatedly steps through the list to be sorted. It compares each pair of adjacent items and simply swaps them if they are in the wrong order. Below is an example of how this sorting works:</p>
+      <img src="http://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif">
+      <p>As you can see, this sorting method can take a while since the algorithm has to go through each pair of elements. Also, it has to do this operation enough times in order to ensure all the pairs are sorted. In fact, it has to iterate through the list n times and compare n-pairs in order to complete the sorting. So on average, bubble sort is said to have O(n^2) complexity, meaning that it takes n^2 amount of time to complete the sorting. This is pretty horrible when compared to the other sorting methods.</p>
+      <h4>Quick Sort</h4>
+      <p>Quick sort is said to be a divide and conquer sorting algorithm, where you first choose a pivot value, usually the middle element in the array. Then, you rearrange all elements in such a way so that all elements that are less than the pivot go to the left part of the array. The larger elements will then go to the right of the pivot. You then apply quick sort algorithm recursively to the left and right of the pivot. Let's see how this works:</p>
+      <img src="http://upload.wikimedia.org/wikipedia/commons/a/af/Quicksort-diagram.svg">
+      <h4>Merge Sort</h4>
+      <p>Merge sort first divides the list into sublists, down to where each sublist is a pair. It then compares the two elements and put them into place. Once that's done, it merges the different sublists into a bigger list. The algorithm goes through the operations over and over again, while merging the smaller lists into bigger lists until a complete list is found. Let's take a look at this example:</p>
+      <img src="http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Sorting/Gifs/mergeSort.gif">
+
+
+
+
+
+      </article>
+
+    </div>
+  </div>
+
+  <footer>
+    <a class="footer-button" href="http://www.linkedin.com/in/ryanau852">LinkedIn</a>
+    <a class="footer-button" href="http://github.com/ryanau">GitHub</a>
+    <a class="footer-button" href="http://twitter.com/ryan_au">Twitter</a>
+  </footer>
+
+  </div>
+
+</body>
+</html>

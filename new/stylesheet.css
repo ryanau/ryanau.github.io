@@ -1,0 +1,152 @@
+
+/* -------------------video------------ */
+.container {
+  width: auto;
+}
+
+.header-container {
+  width: 100%;
+  height: 900px;
+  border-left: none;
+  border-right: none;
+  position: relative;
+  padding: 20px;
+}
+
+.video-container {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+h3 {
+  color: #3cbc8d;
+  z-index: 1;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10%;
+  border: 3px solid #ffffff;
+  padding: 10px;
+  border-radius: 15px;
+  width: 700px;
+  letter-spacing: 3px;
+  font-size: 25px;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(polina.jpg) no-repeat;
+  background-size: cover;
+}
+
+/* ----------------navbar------------------*/
+.navbar-fixed-side-left {
+  left: 0;
+}
+.navbar-fixed-side-right {
+  right: 0;
+}
+.navbar-fixed-side {
+  position: fixed;
+  border-width: 0;
+  z-index: 1030;
+  min-height: 5px;
+  min-width: 8px;
+  max-width: 200px;
+  margin-bottom: 0;
+  border: 0px solid transparent;
+  height: 100%;
+  border-radius: 0px;
+  background-color: black;
+  opacity: 0.9;
+  padding-left: 20px;
+  padding-top: 80px;
+}
+.navbar-fixed-side .navbar-toggle {
+  float: none;
+  margin: 0;
+}
+.navbar-fixed-side .nav > li > a {
+  width: 100%;
+  padding: 5px;
+}
+.navbar-fixed-side .dropdown-menu > li > a {
+  padding: 5px;
+}
+.navbar-fixed-side .dropdown-header {
+  padding: 5px;
+}
+.navbar-fixed-side .navbar-nav {
+  margin: 0;
+}
+
+.navbar-fixed-side .navbar-nav > li {
+  float: none;
+  padding-top: 10px;
+  margin-right: 60px;
+}
+.navbar-fixed-side .navbar-nav > li > a {
+  padding: 5px;
+  line-height: 20px;
+  font-size: 16px;
+}
+.navbar-fixed-side .navbar-nav .open .dropdown-menu > li > a,
+.navbar-fixed-side .navbar-nav .open .dropdown-menu .dropdown-header {
+  padding: 3px 5px 3px 15px;
+}
+.navbar-fixed-side .container {
+  width: 100%;
+  padding: 0;
+}
+.navbar-fixed-side .navbar-header {
+  float: none;
+  margin: 0;
+}
+.navbar-fixed-side .navbar-collapse {
+  padding: 0 2px;
+}
+.navbar-fixed-side .container .navbar-collapse {
+  margin: 0;
+}
+.navbar-fixed-side .container .navbar-brand {
+  margin: 0;
+}
+.navbar-fixed-side .navbar-brand {
+  float: none;
+  height: 100%;
+  padding: 5px 3px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* background image */
+#back-image {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(polina.jpg) no-repeat;
+  background-size: cover;
+}
+
+
